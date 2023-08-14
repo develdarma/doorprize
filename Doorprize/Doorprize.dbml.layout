@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Doorprize">
+  <DataContextMoniker Name="/DoorprizeDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d53143d6-1edb-4a63-851d-c50a7c78e0d1" absoluteBounds="2.625, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DoorprizeDataContext/TBL_T_DATA_UNDI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="27a53b71-946c-4fd4-b104-74c5c87cb8ca" absoluteBounds="2.64, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4a17466b-bfff-4d6e-a2f0-78202f19d640" absoluteBounds="2.625, 2.375, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DoorprizeDataContext/VW_DATA_UNDI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="00ed7dc4-870e-43d1-b571-8455bb82fdff" absoluteBounds="2.64, 2.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="48a1f24a-caf4-4962-b6e0-d6249ba2f957" absoluteBounds="4.75, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DoorprizeDataContext/TBL_M_HADIAH" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c3214bf5-97dc-4ac9-aa0c-520fa7978951" absoluteBounds="4.765, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0ebec9cb-0eac-4522-be00-2b86c8f9f076" absoluteBounds="4.75, 2.375, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DoorprizeDataContext/TBL_T_PEMENANG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b07aea2f-716a-47fc-944d-a24e747852db" absoluteBounds="4.765, 2.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dd83f741-ef09-4efe-82b6-6147d83b2df4" absoluteBounds="0.5, 3.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DoorprizeDataContext/VW_DATA_PEMENANG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f11e7f05-4e36-4b4b-abd0-08cf0a0606c5" absoluteBounds="0.515, 4.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa5cfd2e-36f0-49f6-a4d5-48c40c6c21e7" absoluteBounds="0.5, 0.5, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/DoorprizeDataContext/TBL_T_RAW_DATA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ec0d673a-2d93-44bf-909a-2aaac1d9702a" absoluteBounds="0.515, 0.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

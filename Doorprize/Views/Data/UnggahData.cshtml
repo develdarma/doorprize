@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewBag.Title = "UnggahData";
+    ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
+}
+
+<div class="content">
+    <div class="col-md-12">
+        <div class="card full-height">
+            <div class="card-body">
+                <div class="card-title">Unggah Data</div>
+                <br />
+                @using (Html.BeginForm("UnggahListData", "Data", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <input type="file" name="postedFile" />
+                    <input type="submit" value="Import" />
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">Data</div>
+                <button class="btn btn-success" style="margin-top:0.5%;float:right" onclick="submitRaw()">Submit</button>
+                <div class="table-responsive">
+                    <table id="tblDataUnggah" class="display table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Barcode</th>
+                                <th>Location</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#tblDataUnggah').dataTable({
+            "ajax": "@ViewBag.pathParent/Data/RawData",
+            "columns": [
+                       { "data": "BARCODE" },
+                       { "data": "LOCATION" },
+                       {
+                           data: "DATE",
+                           render: function (data, type, row) {
+                               if (type === "sort" || type === "type") {
+                                   return data;
+                               }
+                               return moment(data).format("DD-MM-YYYY HH:MM");
+                           }
+                       }
+            ]
+        });
+
+        setTimeout(function () {
+            $("#tblDataUnggah").DataTable().ajax.reload();
+        }, 1000);
+    });
+
+    function submitRaw() {
+        $.ajax({            
+            url: '@ViewBag.pathParent/Data/SubmitRaw',
+            type: "POST",
+            dataType: 'json',
+            beforeSend: function () {
+                swal.fire({
+                    html: '<h5>Loading...</h5>',
+                    showConfirmButton: false,
+                    onRender: function () {
+                        // there will only ever be one sweet alert open.
+                        $('.swal2-content').prepend(sweet_loader);
+                    }
+                });
+            },
+            success: function (json) {
+                try {
+                    json = JSON.parse(json);
+                }
+                catch (error) {
+                    Swal.fire({
+                        icon: 'catch',
+                        html: '<h5>Error!</h5>'
+                    });
+                    return false;
+                }
+                if (json.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        html: '<h5>Submit Data Success!</h5>'
+                    });
+                    $("#tblDataUnggah").DataTable().ajax.reload();
+                }
+                else {
+                    Swal.fire({
+                        icon: 'warning',
+                        html: '<h5>Beberapa data sudah ada. Tidak bisa ditambahkan!</h5>'
+                    });
+                    $("#tblDataUnggah").DataTable().ajax.reload();
+                }
+            },
+            error: function () {
+                //Swal.fire({
+                //    icon: 'error',
+                //    html: '<h5>Error!</h5>'
+                //});
+                $("#tblDataUnggah").DataTable().ajax.reload();
+                Swal.fire({
+                    icon: 'success',
+                    html: '<h5>Submit Data Success!</h5>'
+                });
+                return false;
+            }
+            //success: function (data) {
+            //    $("#tblDataUnggah").DataTable().ajax.reload();
+            //},
+            //error: function (error) {
+                
+            //}
+        });
+    }
+</script>
+

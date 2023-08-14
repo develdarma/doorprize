@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_DOORPIZE" Class="DoorprizeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=smmssqbd401;Initial Catalog=DB_DOORPIZE;User ID=smmsapps" SettingsObjectName="Doorprize.Properties.Settings" SettingsPropertyName="DB_DOORPIZEConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TBL_T_DATA_UNDI" Member="TBL_T_DATA_UNDIs">
+    <Type Name="TBL_T_DATA_UNDI">
+      <Column Name="PID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DEPT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JABATAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_DATA_UNDI" Member="VW_DATA_UNDIs">
+    <Type Name="VW_DATA_UNDI">
+      <Column Name="PID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DEPT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JABATAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS_UNID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_HADIAH" Member="TBL_M_HADIAHs">
+    <Type Name="TBL_M_HADIAH">
+      <Column Name="PID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HADIAH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="QTY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QTY_PEMENANG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_PEMENANG" Member="TBL_T_PEMENANGs">
+    <Type Name="TBL_T_PEMENANG">
+      <Column Name="PID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PID_HADIAH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DEPT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JABATAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_DATA_PEMENANG" Member="VW_DATA_PEMENANGs">
+    <Type Name="VW_DATA_PEMENANG">
+      <Column Name="HADIAH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DEPT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JABATAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_RAW_DATA" Member="TBL_T_RAW_DATAs">
+    <Type Name="TBL_T_RAW_DATA">
+      <Column Name="PID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BARCODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COMPANY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="JOB_TITLE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VIP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SESSION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NOTES" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LOCATION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

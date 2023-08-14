@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1 id="tPemenangRandom">Pemenang</h1>
+<h1 id="tPemenang">Pemenang</h1>
+<button id="btnStop" onclick="pemenang()"> STOP </button>
+<button id="btnUndi" onclick="UndiPemenang()"> Undi! </button>
+
+<script language="JavaScript" type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    var currentIndex = 0;
+    var listPemenang = ["Bejo Satoru","Budi Budi Dam Dam","Jirod","Kuproy","Pranky"]
+    var interval = 10;
+
+    $(document).ready(function() {
+        $("#tPemenang").hide();
+        $("#btnUndi").hide();
+        UndiPemenang();
+    });
+
+    function randomIndex() {
+        return ~~(Math.random() * listPemenang.length);
+    };
+
+
+    function UndiPemenang() {
+        $("#btnStop").show();
+        $("#btnUndi").hide();
+        $("#tPemenangRandom").show();
+        $("#tPemenang").hide();
+        
+        window.setInterval(function () {
+            let newIndex = randomIndex();
+            while (newIndex === currentIndex) newIndex = randomIndex();
+            currentIndex = newIndex;
+            console.log(newIndex);
+            document.getElementById("tPemenangRandom").textContent = listPemenang[currentIndex];
+        }, 10);
+    }
+
+    function pemenang() {
+        const random = Math.floor(Math.random() * listPemenang.length);
+        $("#tPemenangRandom").hide();
+        $("#btnStop").hide();
+        $("#tPemenang").show();
+        $("#btnUndi").show();
+        document.getElementById("tPemenang").innerHTML = listPemenang[random]
+    }
+
+    
+
+    
+</script>

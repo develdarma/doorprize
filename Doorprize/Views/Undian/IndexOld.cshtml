@@ -1,0 +1,177 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <script language="JavaScript" type="text/javascript" src="~/Assets/js/core/jquery.3.2.1.min.js"></script>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="~/Assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assets/css/atlantis.min.css">
+    <style>
+        .btn_doorprize_center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            margin-top:-17%;
+            margin-bottom : -20%
+        }
+    </style>
+</head>
+<body style="background-image: url(/Assets/img/background_undi.jpg); background-repeat: no-repeat; background-size: cover; overflow: hidden;">
+    <div class="col-md-12" style="padding-left:3%;padding-right:3%;margin-top:1%">
+        <p style="color:white;text-align:center;font-style:initial;font-size:xx-large">Undian Doorprize</p>
+    </div>
+
+    <div class="row" style="padding-right:3%;padding-left:3%">
+        <!--Doorprize 1-->
+        <div class="col-md-4">
+            <div class="card full-height">
+                <div class="card-body" id="dp1">
+                    <h3 style='text-align:center' id='tDoorprize1'>All New VRZ</h3>
+                    <img id='imgdp1' src='@ViewBag.pathParent/Assets/img/undian/doorprize/fortuner.png' style='display: block;margin-left: auto;margin-right: auto;width: 50%;' />
+                    <div class="btn_doorprize_center" id="vwBtnDp1">
+                        <button class="btn btn-primary" id="btnDPrize1" onclick="undiDoorprize1()">Undi Doorprize</button>
+                        <button class="btn btn-primary" id="btnStopDPrize1" onclick="pemenang1()">Stop Undi</button>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <!--Doorprize 2-->
+        <div class="col-md-4">
+            <div class="card full-height">
+                <div class="card-body">
+                    @*<h3 style="text-align:center">POCO F5 5G</h3>
+                    <img src="~/Assets/img/undian/doorprize/pocof5.PNG" style="display: block;margin-left: auto;margin-right: auto;width: 50%;" />*@
+
+                </div>
+            </div>
+        </div>
+        <!--Doorprize 3-->
+        <div class="col-md-4">
+            <div class="card full-height">
+                <div class="card-body">
+                    @*<h3 style="text-align:center">Xiaomi Watch S1 Active</h3>
+                    <img src="~/Assets/img/undian/doorprize/miwatch.PNG" style="display: block;margin-left: auto;margin-right: auto;width: 50%;" />*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Pemenang 1-->
+    <div class="row" style="padding-left:3%;padding-right:3%">
+        <!--Pemenang Doorprize 1-->
+        <div class="col-md-4" id="pemenangdp1_1">
+            <div class="card full-height">
+                <div class="card-body">
+                    <h3 style="text-align:center" id="tpemenang1random">Pemenang 1</h3>
+                    <h3 style="text-align:center" id="tpemenang1">Pemenang 1</h3>
+                </div>
+            </div>
+        </div>        
+        @*<!--Pemenang Doorprize 2-->
+        <div class="col-md-4">
+            <div class="card full-height">
+                <div class="card-body">
+                    <h3 style="text-align:center">Pemenang 1</h3>
+                </div>
+            </div>
+        </div>        <!--Pemenang Doorprize 2-->
+        <div class="col-md-4">
+            <div class="card full-height">
+                <div class="card-body">
+                    <h3 style="text-align:center">Pemenang 1</h3>
+                </div>
+            </div>
+        </div>*@
+    </div>
+
+    @*<!--Pemenang 2-->
+    <div class="row" style="padding-left:3%;padding-right:3%;margin-top:-1%">
+        <!--Pemenang Doorprize 1-->
+        <div class="col-md-4">
+        </div>
+        <!--Pemenang Doorprize 2-->
+        <div class="col-md-4">
+        </div>        <!--Pemenang Doorprize 2-->
+        <div class="col-md-4">
+            <div class="card full-height">
+                <div class="card-body">
+                    <h3 style="text-align:center">Pemenang 2</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Pemenang 2-->
+    <div class="row" style="padding-left:3%;padding-right:3%;margin-top:-1%">
+        <!--Pemenang Doorprize 1-->
+        <div class="col-md-4">
+        </div>
+        <!--Pemenang Doorprize 2-->
+        <div class="col-md-4">
+        </div>        <!--Pemenang Doorprize 2-->
+        <div class="col-md-4">
+            <div class="card full-height">
+                <div class="card-body">
+                    <h3 style="text-align:center">Pemenang 2</h3>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+    @*<div class="col-md-12" style="padding-left: 3%; padding-right: 3%; display: flex; justify-content: center; align-items: center;">
+        <button class="btn btn-danger" style="font-size:large;">Undi Doorprize</button>
+    </div>*@
+
+
+    <script>
+        var currentIndex = 0;
+        var listPemenang = ["Ditya Ridanta", "Eskandaru Erin", "Darma Putra", "Alkautsar"]
+        var interval = 10;
+
+        $(document).ready(function () {
+            $("#pemenangdp1_1").hide();
+            $("#btnStopDPrize1").hide();
+        });
+
+        function undiDoorprize1() {
+            //$('#vwBtnDp1').hide();
+            $("#btnDPrize1").hide();
+            //$("#dp1").html("<h3 style='text-align:center' id='tDoorprize1'>All New VRZ</h3><img id='imgdp1' src='@ViewBag.pathParent/Assets/img/undian/doorprize/fortuner.png' style='display: block;margin-left: auto;margin-right: auto;width: 50%;' />")
+            $("#pemenangdp1_1").show();
+            $("#btnStopDPrize1").show();
+            UndiPemenang();
+            $("#tpemenang1random").show();
+            $("#tpemenang1").hide();
+            //setTimeout(function () {
+            //    pemenang1();
+            //}, 5000);
+        }
+
+        function randomIndex() {
+            return ~~(Math.random() * listPemenang.length);
+        };
+
+        function UndiPemenang() {
+            window.setInterval(function () {
+                let newIndex = randomIndex();
+                while (newIndex === currentIndex) newIndex = randomIndex();
+                currentIndex = newIndex;
+                console.log(newIndex);
+                document.getElementById("tpemenang1random").textContent = listPemenang[currentIndex];
+            }, 10);
+        }
+
+        function pemenang1() {
+            const random = Math.floor(Math.random() * listPemenang.length);
+            $("#tpemenang1random").hide();
+            $("#btnStopDPrize1").hide();
+            $("#tpemenang1").show();
+            document.getElementById("tpemenang1").innerHTML = listPemenang[random]
+        }
+    </script>
+</body>
+</html>
